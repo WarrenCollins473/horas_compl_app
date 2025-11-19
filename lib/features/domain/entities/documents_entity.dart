@@ -1,15 +1,15 @@
 import 'package:equatable/equatable.dart';
 
 class DocumentsEntity extends Equatable {
-  int id;
-  String category;
-  String activity;
-  String type;
-  String observation;
-  int hours;
-  String link;
+  final int id;
+  final String category;
+  final String activity;
+  final String type;
+  final String observation;
+  final int hours;
+  final String link;
 
-  DocumentsEntity({
+  const DocumentsEntity({
     required this.id,
     required this.category,
     required this.activity,
@@ -20,7 +20,6 @@ class DocumentsEntity extends Equatable {
   });
 
   @override
-  // TODO: implement props
   List<Object?> get props => [
     id,
     category,

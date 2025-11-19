@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:horas_compl_app/core/errors/failure.dart';
 import 'package:horas_compl_app/core/usecase.dart';
-import 'package:horas_compl_app/features/domain/entities/documentsEntity.dart';
+import 'package:horas_compl_app/features/domain/entities/documents_entity.dart';
 import 'package:horas_compl_app/features/domain/repositories/documents_repository.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:horas_compl_app/features/domain/usecases/get_documents_usecase.dart';
