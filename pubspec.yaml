@@ -27,6 +27,7 @@ environment:
 # dependencies can be manually updated by changing the version numbers below to
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
+isar_version: &isar_version 3.3.0-dev.3
 dependencies:
   flutter:
     sdk: flutter
@@ -37,10 +38,17 @@ dependencies:
   equatable: ^2.0.7
   dartz: ^0.10.1
   mocktail: ^1.0.4
+  path_provider: ^2.1.5
+  isar_community: 
+    version: *isar_version
+  isar_community_flutter_libs: # contains Isar Core
+    version: *isar_version
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  isar_community_generator: 
+    version: *isar_version
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -48,6 +56,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+  build_runner: ^2.4.13
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
