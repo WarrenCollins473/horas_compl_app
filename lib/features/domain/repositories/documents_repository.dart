@@ -4,7 +4,7 @@ import 'package:horas_compl_app/features/domain/entities/documents_entity.dart';
 
 abstract class IDocumentsRepository {
   Future<Either<Failure, List<DocumentsEntity>>> getAllDocuments();
-  Future<Either<Failure, void>> addDocument(DocumentsEntity document);
-  Future<Either<Failure, void>> deleteDocument(int id);
-  Future<Either<Failure, void>> updateDocument(DocumentsEntity document);
+  Future<Either<Failure, bool>> addDocument(DocumentsEntity document);
+  Future<Either<Failure, bool>> deleteDocument(int id);
+  Future<Either<Failure, bool>> updateDocument(DocumentsEntity document);
 }
