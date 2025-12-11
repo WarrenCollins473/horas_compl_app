@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:horas_compl_app/core/theme/app_theme.dart';
+import 'package:horas_compl_app/features/data/datasources/documents_datasource_implementation.dart';
+import 'package:horas_compl_app/features/data/models/isar_documents.dart';
+import 'package:horas_compl_app/features/presentation/pages/home_page.dart';
+import 'package:isar_community/isar.dart';
+import 'package:path_provider/path_provider.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  final dir = await getApplicationCacheDirectory();
+  final isar = await Isar.open([DocumentsModelIsarSchema], directory: dir.path);
+  final isarTodoRepo = DocumentsDatasourceImplementation(db: isar);
   runApp(const MyApp());
 }
 
@@ -10,8 +21,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      theme: AppTheme.light,
+      home: const HomePage(),
     );
   }
 }

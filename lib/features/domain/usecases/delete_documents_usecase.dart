@@ -9,7 +9,7 @@ class DeleteDocumentsUsecase implements Usecase {
   DeleteDocumentsUsecase(this.repository);
 
   @override
-  Future<Either<Failure, dynamic>> call(id) async {
+  Future<Either<Failure, bool>> call(id) async {
     return await repository.deleteDocument(id);
   }
 }
