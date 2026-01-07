@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:horas_compl_app/features/presentation/widgets/category_bar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,8 +12,10 @@ class HomePage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('Welcome to the home!'),
-            Text('This is the main page.'),
+            CategoryBar(current: 45, title: 'Ensino', total: 100),
+            CategoryBar(current: 45, title: 'Ensino', total: 100),
+            CategoryBar(current: 45, title: 'Ensino', total: 100),
+            CategoryBar(current: 45, title: 'Ensino', total: 100),
           ],
         ),
       ),
