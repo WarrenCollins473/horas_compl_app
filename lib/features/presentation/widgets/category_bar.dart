@@ -17,7 +17,7 @@ class CategoryBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(10),
+      margin: const EdgeInsets.only(right: 10, left: 10, top: 5, bottom: 5),
       child: Padding(
         padding: const EdgeInsets.all(10),
 
