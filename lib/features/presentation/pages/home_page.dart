@@ -1,43 +1,62 @@
 import 'package:flutter/material.dart';
-import 'package:horas_compl_app/features/presentation/widgets/category_bar.dart';
-import 'package:horas_compl_app/features/presentation/widgets/total_bar.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:horas_compl_app/features/presentation/bloc/documents_bloc.dart';
+import 'package:horas_compl_app/features/presentation/bloc/documents_events.dart';
+import 'package:horas_compl_app/features/presentation/pages/hours_page.dart';
+import 'package:horas_compl_app/features/presentation/pages/documents_page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int selectedIndex = 0;
+
+  final pages = [HoursPage(), DocumentsPage()];
+
+  final titles = const ['Minhas horas', 'Meus documentos'];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Home Page')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+      appBar: AppBar(title: Text(titles[selectedIndex])),
+      drawer: Drawer(
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        child: ListView(
           children: [
-            const TotalBar(current: 150, title: 'Total de Horas', total: 300),
-            Container(
-              margin: const EdgeInsets.only(top: 20),
-              width: MediaQuery.of(context).size.width / 1.3,
-              height: 1,
-              color: Colors.grey[850],
+            ListTile(
+              leading: const Icon(Icons.access_time),
+              iconColor: Theme.of(context).colorScheme.surface,
+              title: Text('Minhas horas'),
+              textColor: Theme.of(context).colorScheme.surface,
+              onTap: () {
+                context.read<DocumentsBloc>().add(LoadDocumentsEvent());
+
+                setState(() => selectedIndex = 0);
+
+                Navigator.pop(context);
+              },
             ),
-            Column(
-              children: [
-                Container(
-                  margin: EdgeInsets.symmetric(vertical: 20),
-                  child: const Text(
-                    'Por categoria',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                ),
-                const CategoryBar(current: 45, title: 'Ensino', total: 100),
-                const CategoryBar(current: 45, title: 'Ensino', total: 100),
-                const CategoryBar(current: 45, title: 'Ensino', total: 100),
-                const CategoryBar(current: 45, title: 'Ensino', total: 100),
-              ],
+            ListTile(
+              leading: const Icon(Icons.text_snippet_outlined),
+              iconColor: Theme.of(context).colorScheme.surface,
+              title: Text('Meus documentos'),
+              textColor: Theme.of(context).colorScheme.surface,
+              onTap: () {
+                context.read<DocumentsBloc>().add(LoadDocumentsEvent());
+
+                setState(() => selectedIndex = 1);
+
+                Navigator.pop(context);
+              },
             ),
           ],
         ),
       ),
+      body: pages[selectedIndex],
     );
   }
 }

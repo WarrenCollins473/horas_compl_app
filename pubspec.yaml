@@ -42,6 +42,7 @@ dependencies:
   isar_community_flutter_libs: 3.3.0-dev.3
   flutter_bloc: ^9.1.1
   bloc: ^9.1.0
+  get_it: ^9.2.0
  
 
 dev_dependencies:

@@ -7,7 +7,26 @@ class DocumentsState extends Equatable {
   final String? error;
 
   const DocumentsState({
-    this.documents = const [],
+    this.documents = const [
+      DocumentsEntity(
+        id: 1,
+        category: "Ensino",
+        activity: "teste",
+        type: "teste",
+        observation: "teste",
+        hours: 20,
+        link: "link",
+      ),
+      DocumentsEntity(
+        id: 2,
+        category: "Ensino",
+        activity: "teste",
+        type: "teste",
+        observation: "teste",
+        hours: 20,
+        link: "link",
+      ),
+    ],
     this.isLoading = false,
     this.error,
   });
