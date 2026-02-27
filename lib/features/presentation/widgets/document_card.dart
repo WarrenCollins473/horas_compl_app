@@ -22,9 +22,7 @@ class DocumentCard extends StatelessWidget {
 
         child: InkWell(
           borderRadius: BorderRadius.circular(5),
-          onTap: () {
-            print('Card clicado');
-          },
+          onTap: onTap,
           child: Padding(
             padding: const EdgeInsets.all(16),
             child: Column(

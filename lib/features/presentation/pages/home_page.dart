@@ -46,7 +46,7 @@ class _HomePageState extends State<HomePage> {
               title: Text('Meus documentos'),
               textColor: Theme.of(context).colorScheme.surface,
               onTap: () {
-                context.read<DocumentsBloc>().add(LoadDocumentsEvent());
+                context.read<DocumentsBloc>();
 
                 setState(() => selectedIndex = 1);
 

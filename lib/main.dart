@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:horas_compl_app/core/di/injection_conatiner.dart';
 import 'package:horas_compl_app/core/theme/app_theme.dart';
+import 'package:horas_compl_app/features/presentation/app_routes.dart';
 import 'package:horas_compl_app/features/presentation/bloc/curriculum_rules_bloc.dart';
 import 'package:horas_compl_app/features/presentation/bloc/curriculum_rules_events.dart';
 import 'package:horas_compl_app/features/presentation/bloc/documents_bloc.dart';
 import 'package:horas_compl_app/features/presentation/bloc/documents_events.dart';
-import 'package:horas_compl_app/features/presentation/pages/home_page.dart';
+import 'package:horas_compl_app/features/presentation/pages/documents_page.dart';
+import 'package:horas_compl_app/features/presentation/pages/hours_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,9 +17,7 @@ Future<void> main() async {
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider<DocumentsBloc>(
-          create: (_) => getIt<DocumentsBloc>()..add(LoadDocumentsEvent()),
-        ),
+        BlocProvider<DocumentsBloc>(create: (_) => getIt<DocumentsBloc>()),
         BlocProvider<CurriculumRulesBloc>(
           create: (_) =>
               getIt<CurriculumRulesBloc>()..add(LoadCurriculumRules()),
@@ -33,9 +33,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Horas Complementares',
       theme: AppTheme.light,
-      home: const HomePage(),
+      initialRoute: AppRoutes.hours.path,
+      routes: {
+        AppRoutes.hours.path: (context) => const HoursPage(),
+        AppRoutes.documents.path: (context) => const DocumentsPage(),
+      },
     );
   }
 }
