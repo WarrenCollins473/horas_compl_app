@@ -5,9 +5,9 @@ import 'package:horas_compl_app/features/presentation/bloc/curriculum_rules_bloc
 import 'package:horas_compl_app/features/presentation/bloc/curriculum_rules_state.dart';
 import 'package:horas_compl_app/features/presentation/bloc/documents_bloc.dart';
 import 'package:horas_compl_app/features/presentation/bloc/documents_state.dart';
-import 'package:horas_compl_app/features/presentation/widgets/category_bar.dart';
-import 'package:horas_compl_app/features/presentation/widgets/drawer.dart';
-import 'package:horas_compl_app/features/presentation/widgets/total_bar.dart';
+import 'package:horas_compl_app/features/presentation/components/category_bar.dart';
+import 'package:horas_compl_app/features/presentation/components/drawer.dart';
+import 'package:horas_compl_app/features/presentation/components/total_bar.dart';
 
 class HoursPage extends StatelessWidget {
   const HoursPage({super.key});

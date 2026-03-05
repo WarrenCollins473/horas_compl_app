@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:horas_compl_app/features/presentation/widgets/category_bar.dart';
+import 'package:horas_compl_app/features/presentation/components/category_bar.dart';
 
 void main() {
   testWidgets('CategoryBar shoud show title, values and progress corretly', (
