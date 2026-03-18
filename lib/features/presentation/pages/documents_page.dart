@@ -35,7 +35,7 @@ class DocumentsPage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const DetailsPage(),
+                            builder: (context) => DetailsPage(id: item.id),
                           ),
                         );
                       },
@@ -47,6 +47,19 @@ class DocumentsPage extends StatelessWidget {
           );
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const DetailsPage()),
+          );
+        },
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        shape: const CircleBorder(),
+
+        child: const Icon(Icons.add, color: Colors.white, size: 32),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

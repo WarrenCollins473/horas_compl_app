@@ -9,6 +9,7 @@ import 'package:horas_compl_app/features/presentation/bloc/documents_bloc.dart';
 import 'package:horas_compl_app/features/presentation/bloc/documents_events.dart';
 import 'package:horas_compl_app/features/presentation/pages/documents_page.dart';
 import 'package:horas_compl_app/features/presentation/pages/hours_page.dart';
+import 'package:horas_compl_app/features/presentation/pages/pdf_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +18,9 @@ Future<void> main() async {
   runApp(
     MultiBlocProvider(
       providers: [
-        BlocProvider<DocumentsBloc>(create: (_) => getIt<DocumentsBloc>()),
+        BlocProvider<DocumentsBloc>(
+          create: (_) => getIt<DocumentsBloc>()..add(LoadDocumentsEvent()),
+        ),
         BlocProvider<CurriculumRulesBloc>(
           create: (_) =>
               getIt<CurriculumRulesBloc>()..add(LoadCurriculumRules()),
@@ -39,6 +42,7 @@ class MyApp extends StatelessWidget {
       routes: {
         AppRoutes.hours.path: (context) => const HoursPage(),
         AppRoutes.documents.path: (context) => const DocumentsPage(),
+        AppRoutes.pdf.path: (context) => const PdfPage(),
       },
     );
   }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class HoursInput extends StatefulWidget {
   final int individualHours;
   final int maximumHours;
+  final int obtainedHours;
   final Function(int hoursObtained) onHoursCalculated;
 
   const HoursInput({
@@ -10,6 +11,7 @@ class HoursInput extends StatefulWidget {
     required this.individualHours,
     required this.maximumHours,
     required this.onHoursCalculated,
+    required this.obtainedHours,
   });
 
   @override
@@ -19,24 +21,25 @@ class HoursInput extends StatefulWidget {
 class _HoursInputState extends State<HoursInput> {
   final TextEditingController _hoursController = TextEditingController();
 
-  int obtainedHours = 0;
-
   void _calculateHours(String value) {
     final entered = int.tryParse(value) ?? 0;
 
     int result = 0;
 
+    // evita divisão por zero
+    if (widget.individualHours <= 0) {
+      widget.onHoursCalculated(0);
+      return;
+    }
+
     if (entered >= widget.individualHours) {
-      result = entered;
+      result =
+          ((entered / widget.individualHours).floor() * widget.individualHours);
 
       if (result > widget.maximumHours) {
         result = widget.maximumHours;
       }
     }
-
-    setState(() {
-      obtainedHours = result;
-    });
 
     widget.onHoursCalculated(result);
   }
@@ -80,7 +83,7 @@ class _HoursInputState extends State<HoursInput> {
             ),
             const SizedBox(height: 16),
             Text(
-              obtainedHours.toString(),
+              widget.obtainedHours.toString(),
               style: const TextStyle(fontSize: 15),
             ),
           ],

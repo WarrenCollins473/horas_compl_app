@@ -1,16 +1,14 @@
-import 'package:equatable/equatable.dart';
 import 'package:isar_community/isar.dart';
 import 'package:horas_compl_app/features/domain/entities/documents_entity.dart';
 
 part 'isar_documents.g.dart';
 
 @collection
-// ignore: must_be_immutable
-class DocumentsModelIsar extends Equatable {
+class DocumentsModelIsar {
   Id id = Isar.autoIncrement;
   late String category;
   late String activity;
-  late String type;
+  late String? type;
   late String observation;
   late int hours;
   late String link;
@@ -37,15 +35,4 @@ class DocumentsModelIsar extends Equatable {
       ..hours = documents.hours
       ..link = documents.link;
   }
-
-  @override
-  List<Object?> get props => [
-    id,
-    category,
-    activity,
-    type,
-    observation,
-    hours,
-    link,
-  ];
 }

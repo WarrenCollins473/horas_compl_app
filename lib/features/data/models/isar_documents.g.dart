@@ -63,7 +63,12 @@ int _documentsModelIsarEstimateSize(
   bytesCount += 3 + object.category.length * 3;
   bytesCount += 3 + object.link.length * 3;
   bytesCount += 3 + object.observation.length * 3;
-  bytesCount += 3 + object.type.length * 3;
+  {
+    final value = object.type;
+    if (value != null) {
+      bytesCount += 3 + value.length * 3;
+    }
+  }
   return bytesCount;
 }
 
@@ -94,7 +99,7 @@ DocumentsModelIsar _documentsModelIsarDeserialize(
   object.id = id;
   object.link = reader.readString(offsets[3]);
   object.observation = reader.readString(offsets[4]);
-  object.type = reader.readString(offsets[5]);
+  object.type = reader.readStringOrNull(offsets[5]);
   return object;
 }
 
@@ -116,7 +121,7 @@ P _documentsModelIsarDeserializeProp<P>(
     case 4:
       return (reader.readString(offset)) as P;
     case 5:
-      return (reader.readString(offset)) as P;
+      return (reader.readStringOrNull(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
   }
@@ -896,7 +901,25 @@ extension DocumentsModelIsarQueryFilter
   }
 
   QueryBuilder<DocumentsModelIsar, DocumentsModelIsar, QAfterFilterCondition>
-  typeEqualTo(String value, {bool caseSensitive = true}) {
+  typeIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const FilterCondition.isNull(property: r'type'),
+      );
+    });
+  }
+
+  QueryBuilder<DocumentsModelIsar, DocumentsModelIsar, QAfterFilterCondition>
+  typeIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(
+        const FilterCondition.isNotNull(property: r'type'),
+      );
+    });
+  }
+
+  QueryBuilder<DocumentsModelIsar, DocumentsModelIsar, QAfterFilterCondition>
+  typeEqualTo(String? value, {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(
         FilterCondition.equalTo(
@@ -910,7 +933,7 @@ extension DocumentsModelIsarQueryFilter
 
   QueryBuilder<DocumentsModelIsar, DocumentsModelIsar, QAfterFilterCondition>
   typeGreaterThan(
-    String value, {
+    String? value, {
     bool include = false,
     bool caseSensitive = true,
   }) {
@@ -928,7 +951,7 @@ extension DocumentsModelIsarQueryFilter
 
   QueryBuilder<DocumentsModelIsar, DocumentsModelIsar, QAfterFilterCondition>
   typeLessThan(
-    String value, {
+    String? value, {
     bool include = false,
     bool caseSensitive = true,
   }) {
@@ -946,8 +969,8 @@ extension DocumentsModelIsarQueryFilter
 
   QueryBuilder<DocumentsModelIsar, DocumentsModelIsar, QAfterFilterCondition>
   typeBetween(
-    String lower,
-    String upper, {
+    String? lower,
+    String? upper, {
     bool includeLower = true,
     bool includeUpper = true,
     bool caseSensitive = true,
@@ -1317,7 +1340,7 @@ extension DocumentsModelIsarQueryProperty
     });
   }
 
-  QueryBuilder<DocumentsModelIsar, String, QQueryOperations> typeProperty() {
+  QueryBuilder<DocumentsModelIsar, String?, QQueryOperations> typeProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'type');
     });

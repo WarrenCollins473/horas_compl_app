@@ -40,11 +40,13 @@ class DocumentCard extends StatelessWidget {
                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
                 ),
                 Text(document.activity, style: const TextStyle(fontSize: 12)),
-                const Text(
-                  'Tipo',
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-                ),
-                Text(document.type, style: const TextStyle(fontSize: 12)),
+                if (document.type != null) ...[
+                  const Text(
+                    'Tipo',
+                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                  ),
+                  Text(document.type!, style: const TextStyle(fontSize: 12)),
+                ],
                 const Text(
                   'horas',
                   style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),

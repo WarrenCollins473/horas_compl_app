@@ -42,6 +42,12 @@ void main() {
         link: 'http://testlink.com',
       ),
     );
-    expect(result, equals(tDocumentsModel));
+    expect(result.id, tDocumentsModel.id);
+    expect(result.category, tDocumentsModel.category);
+    expect(result.activity, tDocumentsModel.activity);
+    expect(result.type, tDocumentsModel.type);
+    expect(result.observation, tDocumentsModel.observation);
+    expect(result.hours, tDocumentsModel.hours);
+    expect(result.link, tDocumentsModel.link);
   });
 }

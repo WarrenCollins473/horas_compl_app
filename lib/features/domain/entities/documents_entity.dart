@@ -4,7 +4,7 @@ class DocumentsEntity extends Equatable {
   final int id;
   final String category;
   final String activity;
-  final String type;
+  final String? type;
   final String observation;
   final int hours;
   final String link;

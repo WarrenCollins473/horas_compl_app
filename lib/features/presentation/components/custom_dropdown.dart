@@ -5,6 +5,7 @@ class CustomDropdown extends StatelessWidget {
   final TextEditingController? controller;
   final List<DropdownMenuEntry<String>> entries;
   final bool enabled;
+  final String? errorText;
   final void Function(String?)? onSelected;
 
   const CustomDropdown({
@@ -14,11 +15,13 @@ class CustomDropdown extends StatelessWidget {
     this.controller,
     this.enabled = true,
     this.onSelected,
+    this.errorText,
   });
 
   @override
   Widget build(BuildContext context) {
     return DropdownMenu<String>(
+      errorText: errorText,
       hintText: hintText,
       controller: controller,
       enabled: enabled,
