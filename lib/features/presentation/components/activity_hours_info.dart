@@ -90,8 +90,14 @@ class ActivityHoursInfo extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Text(individual.toString(), style: const TextStyle(fontSize: 15)),
-              Text(maximum.toString(), style: const TextStyle(fontSize: 15)),
+              Text(
+                individual.toString(),
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+              Text(
+                maximum.toString(),
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
             ],
           ),
         ],

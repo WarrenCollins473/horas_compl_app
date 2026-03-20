@@ -15,14 +15,24 @@ class DocumentsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Meus documentos')),
+      appBar: AppBar(
+        title: Text(
+          'Meus documentos',
+          style: Theme.of(context).textTheme.headlineLarge,
+        ),
+      ),
       drawer: AppDrawer(currentRoute: AppRoutes.documents.path),
       body: BlocBuilder<DocumentsBloc, DocumentsState>(
         builder: (context, documentsState) {
           return BlocBuilder<CurriculumRulesBloc, CurriculumRulesState>(
             builder: (context, curriculumRulesState) {
               if (documentsState.documents.isEmpty) {
-                return Center(child: Text("Nenhum documento adicionado"));
+                return Center(
+                  child: Text(
+                    "Nenhum documento adicionado",
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                );
               } else {
                 return ListView.builder(
                   itemCount: documentsState.documents.length,

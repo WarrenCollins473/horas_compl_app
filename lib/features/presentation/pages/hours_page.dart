@@ -15,7 +15,12 @@ class HoursPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Minhas horas')),
+      appBar: AppBar(
+        title: Text(
+          'Minhas horas',
+          style: Theme.of(context).textTheme.headlineLarge,
+        ),
+      ),
       drawer: AppDrawer(currentRoute: AppRoutes.hours.path),
       body: BlocBuilder<DocumentsBloc, DocumentsState>(
         builder: (context, documentsState) {
@@ -49,9 +54,9 @@ class HoursPage extends StatelessWidget {
                       ),
                       Container(
                         margin: EdgeInsets.symmetric(vertical: 20),
-                        child: const Text(
+                        child: Text(
                           'Por categoria',
-                          style: TextStyle(fontSize: 20),
+                          style: Theme.of(context).textTheme.titleLarge,
                         ),
                       ),
                       Column(

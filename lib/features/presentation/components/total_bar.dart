@@ -20,7 +20,7 @@ class TotalBar extends StatelessWidget {
       margin: const EdgeInsets.only(top: 40),
       child: Column(
         children: [
-          Text('Total de Horas', style: TextStyle(fontSize: 20)),
+          Text('Total de Horas', style: Theme.of(context).textTheme.titleLarge),
           Container(
             height: 40,
             width: MediaQuery.of(context).size.width / 2,
@@ -33,10 +33,7 @@ class TotalBar extends StatelessWidget {
                 ),
               ],
               borderRadius: BorderRadius.circular(15),
-              border: Border.all(
-                color: Colors.black, // cor da borda
-                width: 1,
-              ),
+              border: Border.all(color: Colors.black, width: 1),
             ),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(15),
@@ -61,7 +58,10 @@ class TotalBar extends StatelessWidget {
           ),
           Container(
             margin: const EdgeInsets.only(top: 8),
-            child: Text('$current/$total', style: TextStyle(fontSize: 16)),
+            child: Text(
+              '$current/$total',
+              style: Theme.of(context).textTheme.bodyLarge,
+            ),
           ),
         ],
       ),

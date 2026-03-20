@@ -28,6 +28,7 @@ class AppDrawer extends StatelessWidget {
             iconColor: Theme.of(context).colorScheme.surface,
             title: Text('Minhas horas'),
             textColor: Theme.of(context).colorScheme.surface,
+            titleTextStyle: Theme.of(context).textTheme.headlineMedium,
             onTap: () {
               context.read<DocumentsBloc>().add(LoadDocumentsEvent());
               _navigate(context, AppRoutes.hours.path);
@@ -38,6 +39,7 @@ class AppDrawer extends StatelessWidget {
             iconColor: Theme.of(context).colorScheme.surface,
             title: Text('Meus documentos'),
             textColor: Theme.of(context).colorScheme.surface,
+            titleTextStyle: Theme.of(context).textTheme.headlineMedium,
             onTap: () {
               context.read<DocumentsBloc>().add(LoadDocumentsEvent());
               _navigate(context, AppRoutes.documents.path);
@@ -48,6 +50,7 @@ class AppDrawer extends StatelessWidget {
             iconColor: Theme.of(context).colorScheme.surface,
             title: Text('Gerar PDF'),
             textColor: Theme.of(context).colorScheme.surface,
+            titleTextStyle: Theme.of(context).textTheme.headlineMedium,
             onTap: () {
               context.read<DocumentsBloc>().add(LoadDocumentsEvent());
               _navigate(context, AppRoutes.pdf.path);

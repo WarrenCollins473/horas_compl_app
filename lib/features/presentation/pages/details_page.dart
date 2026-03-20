@@ -10,7 +10,7 @@ import 'package:horas_compl_app/features/presentation/components/action_button.d
 import 'package:horas_compl_app/features/presentation/components/activity_hours_info.dart';
 import 'package:horas_compl_app/features/presentation/components/custom_dropdown.dart';
 import 'package:horas_compl_app/features/presentation/components/hours_input.dart';
-import 'package:horas_compl_app/features/presentation/components/title.dart';
+import 'package:horas_compl_app/features/presentation/components/DetailTitle.dart';
 
 class DetailsPage extends StatefulWidget {
   final int? id;
@@ -140,7 +140,12 @@ class _DetailsPageState extends State<DetailsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Detalhes do documento')),
+      appBar: AppBar(
+        title: Text(
+          'Detalhes do documento',
+          style: Theme.of(context).textTheme.headlineLarge,
+        ),
+      ),
       body: BlocBuilder<DocumentsBloc, DocumentsState>(
         builder: (context, documentsState) {
           return BlocBuilder<CurriculumRulesBloc, CurriculumRulesState>(
@@ -258,13 +263,10 @@ class _DetailsPageState extends State<DetailsPage> {
                                 ),
                                 color: Color(0xFFEDEDED),
                               ),
-                              child: const Center(
+                              child: Center(
                                 child: Text(
                                   'Carga Horária',
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
+                                  style: Theme.of(context).textTheme.bodyLarge,
                                 ),
                               ),
                             ),
@@ -342,7 +344,12 @@ class _DetailsPageState extends State<DetailsPage> {
                                     onPressed: () {
                                       Navigator.pop(context);
                                     },
-                                    child: const Text("Cancelar"),
+                                    child: Text(
+                                      "Cancelar",
+                                      style: Theme.of(
+                                        context,
+                                      ).textTheme.headlineMedium,
+                                    ),
                                   ),
                                   ElevatedButton(
                                     onPressed: () {
@@ -352,7 +359,12 @@ class _DetailsPageState extends State<DetailsPage> {
                                       Navigator.pop(context);
                                       Navigator.pop(context);
                                     },
-                                    child: const Text("Excluir"),
+                                    child: Text(
+                                      "Excluir",
+                                      style: Theme.of(
+                                        context,
+                                      ).textTheme.headlineMedium,
+                                    ),
                                   ),
                                 ],
                               ),

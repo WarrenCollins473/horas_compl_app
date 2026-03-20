@@ -30,30 +30,33 @@ class DocumentCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text(
+                Text(
                   'Categoria',
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-                ),
-                Text(document.category, style: const TextStyle(fontSize: 12)),
-                const Text(
-                  'Atividade',
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-                ),
-                Text(document.activity, style: const TextStyle(fontSize: 12)),
-                if (document.type != null) ...[
-                  const Text(
-                    'Tipo',
-                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-                  ),
-                  Text(document.type!, style: const TextStyle(fontSize: 12)),
-                ],
-                const Text(
-                  'horas',
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
                 Text(
+                  document.category,
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+                Text(
+                  'Atividade',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+                Text(
+                  document.activity,
+                  style: Theme.of(context).textTheme.bodySmall,
+                ),
+                if (document.type != null) ...[
+                  Text('Tipo', style: Theme.of(context).textTheme.bodyMedium),
+                  Text(
+                    document.type!,
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                ],
+                Text('horas', style: Theme.of(context).textTheme.bodyMedium),
+                Text(
                   document.hours.toString(),
-                  style: const TextStyle(fontSize: 12),
+                  style: Theme.of(context).textTheme.bodySmall,
                 ),
               ],
             ),

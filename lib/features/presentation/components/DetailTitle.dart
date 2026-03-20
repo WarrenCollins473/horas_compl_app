@@ -11,7 +11,7 @@ class DetailTitle extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8.0),
       child: Text(
         text,
-        style: const TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+        style: Theme.of(context).textTheme.bodyLarge,
         textAlign: TextAlign.start,
       ),
     );

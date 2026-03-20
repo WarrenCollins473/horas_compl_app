@@ -53,9 +53,9 @@ class _HoursInputState extends State<HoursInput> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text(
+            Text(
               'Horas lançadas',
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
             const SizedBox(height: 8),
             SizedBox(
@@ -77,14 +77,11 @@ class _HoursInputState extends State<HoursInput> {
         Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const Text(
-              'Horas obtidas',
-              style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
-            ),
+            Text('Horas obtidas', style: Theme.of(context).textTheme.bodyLarge),
             const SizedBox(height: 16),
             Text(
               widget.obtainedHours.toString(),
-              style: const TextStyle(fontSize: 15),
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
           ],
         ),

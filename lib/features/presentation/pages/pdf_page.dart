@@ -124,7 +124,12 @@ class PdfPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Gerar PDF')),
+      appBar: AppBar(
+        title: Text(
+          'Gerar PDF',
+          style: Theme.of(context).textTheme.headlineLarge,
+        ),
+      ),
       drawer: AppDrawer(currentRoute: AppRoutes.pdf.path),
 
       body: BlocBuilder<DocumentsBloc, DocumentsState>(
@@ -133,10 +138,20 @@ class PdfPage extends StatelessWidget {
             builder: (context, rulesState) {
               return Center(
                 child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Theme.of(context).colorScheme.primary,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 30,
+                      vertical: 15,
+                    ),
+                  ),
                   onPressed: () {
                     previewPdf(context, documentState, rulesState);
                   },
-                  child: const Text("Visualizar PDF"),
+                  child: Text(
+                    "Visualizar PDF",
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
                 ),
               );
             },
