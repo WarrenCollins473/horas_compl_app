@@ -25,9 +25,9 @@ class AppDrawer extends StatelessWidget {
         children: [
           ListTile(
             leading: const Icon(Icons.access_time),
-            iconColor: Theme.of(context).colorScheme.surface,
+            iconColor: Theme.of(context).colorScheme.onPrimary,
             title: Text('Minhas horas'),
-            textColor: Theme.of(context).colorScheme.surface,
+            textColor: Theme.of(context).colorScheme.onPrimary,
             titleTextStyle: Theme.of(context).textTheme.headlineMedium,
             onTap: () {
               context.read<DocumentsBloc>().add(LoadDocumentsEvent());
@@ -36,9 +36,9 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.text_snippet_outlined),
-            iconColor: Theme.of(context).colorScheme.surface,
+            iconColor: Theme.of(context).colorScheme.onPrimary,
             title: Text('Meus documentos'),
-            textColor: Theme.of(context).colorScheme.surface,
+            textColor: Theme.of(context).colorScheme.onPrimary,
             titleTextStyle: Theme.of(context).textTheme.headlineMedium,
             onTap: () {
               context.read<DocumentsBloc>().add(LoadDocumentsEvent());
@@ -47,9 +47,9 @@ class AppDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.picture_as_pdf_outlined),
-            iconColor: Theme.of(context).colorScheme.surface,
+            iconColor: Theme.of(context).colorScheme.onPrimary,
             title: Text('Gerar PDF'),
-            textColor: Theme.of(context).colorScheme.surface,
+            textColor: Theme.of(context).colorScheme.onPrimary,
             titleTextStyle: Theme.of(context).textTheme.headlineMedium,
             onTap: () {
               context.read<DocumentsBloc>().add(LoadDocumentsEvent());

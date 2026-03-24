@@ -150,7 +150,7 @@ class PdfPage extends StatelessWidget {
                   },
                   child: Text(
                     "Visualizar PDF",
-                    style: Theme.of(context).textTheme.headlineMedium,
+                    style: Theme.of(context).textTheme.headlineLarge,
                   ),
                 ),
               );

@@ -43,7 +43,7 @@ import 'package:horas_compl_app/features/presentation/components/custom_dropdown
 import 'package:horas_compl_app/features/presentation/components/document_card.dart';
 import 'package:horas_compl_app/features/presentation/components/drawer.dart';
 import 'package:horas_compl_app/features/presentation/components/hours_input.dart';
-import 'package:horas_compl_app/features/presentation/components/DetailTitle.dart';
+import 'package:horas_compl_app/features/presentation/components/detailTitle.dart';
 import 'package:horas_compl_app/features/presentation/components/total_bar.dart';
 import 'package:horas_compl_app/features/presentation/pages/details_page.dart';
 import 'package:horas_compl_app/features/presentation/pages/documents_page.dart';

@@ -10,7 +10,7 @@ import 'package:horas_compl_app/features/presentation/components/action_button.d
 import 'package:horas_compl_app/features/presentation/components/activity_hours_info.dart';
 import 'package:horas_compl_app/features/presentation/components/custom_dropdown.dart';
 import 'package:horas_compl_app/features/presentation/components/hours_input.dart';
-import 'package:horas_compl_app/features/presentation/components/DetailTitle.dart';
+import 'package:horas_compl_app/features/presentation/components/detailTitle.dart';
 
 class DetailsPage extends StatefulWidget {
   final int? id;

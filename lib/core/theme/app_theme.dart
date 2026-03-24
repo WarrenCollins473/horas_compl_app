@@ -7,7 +7,7 @@ class AppTheme {
     final colorScheme = ColorScheme(
       brightness: Brightness.light,
       primary: AppColors.primary,
-      onPrimary: Colors.white,
+      onPrimary: AppColors.onPrimary,
       secondary: AppColors.secondary,
       onSecondary: Colors.black,
       error: AppColors.error,
@@ -25,9 +25,9 @@ class AppTheme {
         headlineLarge: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
-          color: colorScheme.surface,
+          color: colorScheme.onPrimary,
         ),
-        headlineMedium: TextStyle(fontSize: 18, color: colorScheme.surface),
+        headlineMedium: TextStyle(fontSize: 18, color: colorScheme.onSurface),
         titleLarge: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.w600,
