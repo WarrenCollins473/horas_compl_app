@@ -92,7 +92,3 @@ Este projeto faz parte do meu processo de aprendizado em Flutter e tem como foco
 Fico totalmente aberto a sugestões, críticas e melhorias. Se quiser contribuir ou trocar ideias, será muito bem-vindo!
 
 ---
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Sinta-se livre para utilizar e adaptar.
